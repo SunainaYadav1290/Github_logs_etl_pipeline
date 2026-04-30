@@ -4,10 +4,10 @@
 This project extracts issue data from the GitHub API, processes it using PySpark, and stores it in Parquet format for analysis.
 
 🔹 Tech Stack
-Python
-PySpark
+Python,
+PySpark,
 REST API (GitHub API)
-🔹 ETL Flow
+# 🔹 ETL Flow
 ## Extract
 Fetch data from GitHub API using requests
 Handle errors and log responses
