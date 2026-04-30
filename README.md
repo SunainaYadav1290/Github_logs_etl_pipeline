@@ -7,6 +7,17 @@ This project extracts issue data from the GitHub API, processes it using PySpark
 Python,
 PySpark,
 REST API (GitHub API)
+🔹 Project Structure
+   github-logs-etl-pipeline/
+│
+├── src/
+│   ├── extract.py
+│   ├── transform.py
+│   ├── main.py
+│
+├── README.md
+├── requirements.txt
+├── .gitignore   
 # 🔹 ETL Flow
 ## Extract
 Fetch data from GitHub API using requests
