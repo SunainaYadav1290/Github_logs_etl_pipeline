@@ -8,7 +8,7 @@ Python,
 PySpark,
 REST API (GitHub API)
 🔹 Project Structure
-   github-logs-etl-pipeline/
+github-logs-etl-pipeline/
 │
 ├── src/
 │   ├── extract.py
