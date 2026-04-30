@@ -8,6 +8,8 @@ Python,
 PySpark,
 REST API (GitHub API)
 🔹 Project Structure
+
+
 github-logs-etl-pipeline/
 │
 ├── src/
@@ -17,7 +19,9 @@ github-logs-etl-pipeline/
 │
 ├── README.md
 ├── requirements.txt
-├── .gitignore   
+├── .gitignore  
+
+
 # 🔹 ETL Flow
 ## Extract
 Fetch data from GitHub API using requests
