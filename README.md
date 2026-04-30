@@ -1,12 +1,14 @@
 # GitHub Logs ETL Pipeline
-🔹 Overview
+## 🔹 Overview
 
 This project extracts issue data from the GitHub API, processes it using PySpark, and stores it in Parquet format for analysis.
 
-🔹 Tech Stack
-Python,
-PySpark,
+## 🔹 Tech Stack
+```
+Python
+PySpark
 REST API (GitHub API)
+```
 ## 🔹 Project Structure
 
 ```
@@ -22,14 +24,25 @@ github-logs-etl-pipeline/
 ├── .gitignore  
 
 ```
-# 🔹 ETL Flow
-## Extract
-Fetch data from GitHub API using requests
-Handle errors and log responses
-## Transform
-Convert timestamps
-Extract day and hour
-Classify logs (ERROR / INFO)
-Aggregate logs
-## Load
-Store output in Parquet format
+## 🔹 ETL Flow
+
+### 1. Extract
+- Fetch data from GitHub API using `requests`
+- Handle API errors and log responses
+
+### 2. Transform
+- Convert timestamps to proper format
+- Extract features like day and hour
+- Classify logs into ERROR / INFO
+- Aggregate data for analysis
+
+### 3. Load
+- Store processed data in Parquet format for optimized querying
+## 🔹 How to Run
+
+```bash id="k8d3pn"
+pip install -r requirements.txt
+python -m src.main
+```
+## 🔹 Output
+Cleaned and aggregated logs stored in Parquet format
