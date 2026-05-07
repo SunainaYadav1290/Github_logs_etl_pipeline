@@ -1,19 +1,42 @@
 from pyspark.sql import SparkSession
 from src.extract import extract
+from src.preprocess import preprocess
 from src.transform import transform
-import logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-def main():
-    spark = SparkSession.builder.appName("github_logs_aggregator").getOrCreate()
-    logger.info("SparkSession created successfully")
-    url = "https://api.github.com/repos/apache/spark/issues?state=all"
+from src.load import load  
+from src.utils import get_last_loaded_timestamp
+from pyspark.sql.types import StructType, StructField, StringType,LongType
+spark = SparkSession.builder.appName("github_logs").getOrCreate()
 
-    df = extract(spark, url)
-    logger.info("Extracted DataFrame successfully")
-    result = transform(df)
-    logger.info("Transformed DataFrame successfully")
-    result.write.mode("overwrite").parquet("output/my_log1.parquet")
-    logger.info("Saved transformed DataFrame to output/my_log1.parquet")
-if __name__ == "__main__":
-    main()
+url = "https://api.github.com/repos/apache/spark/issues?state=all"
+output_path = "/mnt/c/Users/HP/Desktop/output"   # choose your path
+
+# Step 1: Extract
+data = extract(url)
+
+# Step 2: Preprocess
+clean_data = preprocess(data)
+schema = StructType([
+    StructField("id", LongType(), True),
+    StructField("title", StringType(), True),
+    StructField("state", StringType(), True),
+    StructField("created_at", StringType(), True),
+    StructField("number", LongType(), True)
+])
+# Step 3: Create DataFrame
+df = spark.createDataFrame(clean_data,schema=schema)
+# Step 4: Transform
+
+df = transform(df)
+# Step 5: Incremental logic
+last_ts = get_last_loaded_timestamp(spark, output_path)
+
+if last_ts:
+    print(f"Last loaded timestamp: {last_ts}")
+    df = df.filter(f.col("created_at") > last_ts)
+
+
+# Step 5: Load 
+load(df, output_path)
+df = spark.read.parquet("/mnt/c/Users/HP/Desktop/output")
+df.show()
+spark.stop()
