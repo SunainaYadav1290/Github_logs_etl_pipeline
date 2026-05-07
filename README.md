@@ -30,12 +30,14 @@ github-logs-etl-pipeline/
 ├── .gitignore
 ```
 ### Features
+```
 Retry strategy for API failures
 Data cleaning using PySpark
 Lazy evaluation with Spark transformations
 Partitioned Parquet storage
 Modular ETL architecture
 Logging for monitoring pipeline execution
+```
 
 ### 1. Extract
 Fetch data from GitHub API using requests
