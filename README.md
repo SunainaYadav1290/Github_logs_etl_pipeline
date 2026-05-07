@@ -68,30 +68,32 @@ Reusable helper functions and logging utilities are maintained in utils.py for b
 ```
 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/SunainaYadav1290/Github_logs_etl_pipeline.git
 ```
 
 2. Navigate to the project directory
 
-```bash
+```
 cd Github_logs_etl_pipeline
 ```
 
 3. Install dependencies
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
 4. Run the ETL pipeline
 
-```bash
+```
 python -m src.main
 ```
 
 ## Output Structure
 Processed and aggregated logs are stored in partitioned Parquet format inside the `output/` directory.
+```
 output/
    date=2026-05-07/
        part-0000.parquet
+```
