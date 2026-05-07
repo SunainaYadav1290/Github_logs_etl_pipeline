@@ -65,7 +65,7 @@ Partition data by date for optimized querying
 Reusable helper functions and logging utilities are maintained in utils.py for better modularity and maintainability.
 
 ## How to Run
-```
+
 1. Clone the repository
 
 ```
@@ -90,7 +90,7 @@ pip install -r requirements.txt
 python -m src.main
 ```
 
-## Output Structure
+##  Output Structure
 Processed and aggregated logs are stored in partitioned Parquet format inside the `output/` directory.
 ```
 output/
