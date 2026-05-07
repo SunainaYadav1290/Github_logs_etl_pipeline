@@ -62,7 +62,7 @@ Partition data by date for optimized querying
 🔹 Utilities
 Reusable helper functions and logging utilities are maintained in utils.py for better modularity and maintainability.
 
-🔹 Output Structure
+### Output Structure
 output/
    date=2026-05-07/
        part-0000.parquet
