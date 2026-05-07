@@ -29,7 +29,7 @@ github-logs-etl-pipeline/
 ├── requirements.txt
 ├── .gitignore
 ```
-🔹 Features
+### Features
 Retry strategy for API failures
 Data cleaning using PySpark
 Lazy evaluation with Spark transformations
